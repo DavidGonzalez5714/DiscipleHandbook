@@ -15,6 +15,7 @@ export class ArticleControlerComponent implements OnInit {
   public content: string = '';
   public articles: any = (data as any).default;
   private id: number = 0;
+  public title: string = '';
 
   constructor(
     private route: ActivatedRoute,
@@ -22,6 +23,7 @@ export class ArticleControlerComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
+      this.content = '';
       this.id = params['id'];
 
       this.getArticleById();
@@ -33,7 +35,7 @@ export class ArticleControlerComponent implements OnInit {
 
     if(article){
       this.content = article.body;
+      this.title = article.title;
     }
   }
-  
 }
