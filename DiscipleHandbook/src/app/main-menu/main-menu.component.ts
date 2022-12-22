@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { faHeart } from '@fortawesome/free-regular-svg-icons';
 
 @Component({
   selector: 'app-main-menu',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./main-menu.component.css']
 })
 export class MainMenuComponent implements OnInit {
+  faHeart = faHeart;
 
   constructor() { }
 
