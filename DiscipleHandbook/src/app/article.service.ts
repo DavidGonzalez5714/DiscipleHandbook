@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
-import { catchError, retry } from 'rxjs/operators';
-import { Config } from './model/config';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +11,7 @@ export class ArticleService {
 
   configUrl = 'assets/test.json';
 
-  getHtml(id: number) {
-    return this.http.get<string>('assets/' + id + '.html');
+  getHtml(id: number): Observable<string> {
+    return this.http.get('assets/' + id + '.html', {responseType: "text" });
   }
 }
