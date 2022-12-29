@@ -4,6 +4,8 @@ import { ActivatedRoute, Router, ParamMap } from '@angular/router';
 import * as data from '../../assets/test.json';
 import * as _ from 'lodash';
 import { templateSettings } from 'lodash';
+import { ArticleService } from '../article.service';
+import { Config } from '../model/config';
 
 
 @Component({
@@ -17,25 +19,25 @@ export class ArticleControlerComponent implements OnInit {
   private id: number = 0;
   public title: string = '';
 
+
   constructor(
     private route: ActivatedRoute,
-  ) {}
+    private article: ArticleService
+  ) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       this.content = '';
       this.id = params['id'];
 
-      this.getArticleById();
+      this.getHtml( );
     });
   }
 
-  getArticleById(): void{
-    let article = _.find(this.articles, (x) => x.id == this.id);
-
-    if(article){
-      this.content = article.body;
-      this.title = article.title;
-    }
+  getHtml() {
+    this.article.getHtml(this.id)
+      .subscribe((data: string) => {
+        this.content = data; 
+      });
   }
 }
