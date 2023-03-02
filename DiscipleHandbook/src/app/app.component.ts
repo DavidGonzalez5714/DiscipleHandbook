@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { ArticleService } from './article.service';
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import { Observable, ObservableNotification, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +10,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'DiscipleHandbook';
+  faArrowLeft = faArrowLeft;
+  public showBackButton: Observable<any>;
+
+  constructor(public article: ArticleService, ) {
+    this.showBackButton = this.article.navHome;
+   }
 }
