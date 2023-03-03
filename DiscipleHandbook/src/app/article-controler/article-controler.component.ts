@@ -18,7 +18,9 @@ export class ArticleControlerComponent implements OnInit {
     private route: ActivatedRoute,
     private article: ArticleService,
     public domSanitizer: DomSanitizer
-  ) { }
+  ) { 
+    this.article.emitShowHome(true);
+  }
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
