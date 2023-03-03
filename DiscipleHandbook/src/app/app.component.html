@@ -305,11 +305,18 @@
     alt="Angular Logo"
     src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg=="
   /> -->
-  <span style="padding-left: 2%;">
-    <fa-icon [hidden]="!(showBackButton | async)" size="xl" [icon]="faArrowLeft" class="fontawesomeIcons"></fa-icon>
-
-    Welcome to the Disciple's Handbook!
-  </span>
+  <div class="nav-flex">
+    <div class="back-arrow" [style.left]="!(showBackButton | async) ? '-10%' : '1%'" (click)="navHome()">
+      <span>
+        <fa-icon size="xl" [icon]="faArrowLeft" class="fontawesomeIcons"></fa-icon>
+      </span> 
+    </div>
+    <div style="padding-left: 2%;">
+      <span >
+        Welcome to the Disciple's Handbook!
+      </span>
+    </div>
+  </div>
     <div class="spacer"></div>
     <!-- These may be useful when we are doing videos or linking to videos -->
     <!-- <a aria-label="Angular on twitter" target="_blank" rel="noopener" href="https://twitter.com/angular" title="Twitter">

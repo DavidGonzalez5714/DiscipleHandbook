@@ -1,0 +1,13 @@
+.back-arrow {
+    transition: all .5s;
+    position: relative;
+    cursor: pointer;
+  }
+
+  .nav-flex{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    width: 100%;
+  }
